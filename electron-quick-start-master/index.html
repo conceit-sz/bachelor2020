@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+    
+    <div class="speech">
+      <h2>啊 我好想毕业 啊 他妈的</h2>
+    </div>
+
+    <div class="readFile ">
+      <div class="holder todoList">
+        TodoList-1: 选取文件
+        <!-- <input type="file" name="read-din"> -->
+      </div>
+      
+      <div class="display-1">
+        <select name="example-select" id="example-select" >
+          <option value="east">东向角度</option>
+          <option value="north">北向角度</option>
+          <option value="heading">天向角度</option>
+        </select>
+      </div>
+
+      <div class="echarts"></div>
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
