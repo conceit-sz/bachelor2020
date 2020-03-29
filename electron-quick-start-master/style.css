@@ -1,3 +1,8 @@
 .todoList {
   background-color: chocolate;
 }
+#echarts {
+  height: 65vh;
+  max-width: 800px;
+  margin: 0 auto;
+}

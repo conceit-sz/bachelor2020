@@ -1,3 +1,18 @@
+#作者的话
+- 基于electron-quick-start项目进行开发，后文为原作者的readme。
+- 本作是捷联惯导系统数据处理软件demo,数据处理遵循一个指定的 SLIP 协议进行解释，每个包65字节。
+
+**Finished**
+- readFile: INS.din => bianyString
+- bianryString.str_ax => arr_ax
+- 
+
+**Todo List**
+- 选取文件
+- 引入模块echarts
+- 软件打包
+
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**

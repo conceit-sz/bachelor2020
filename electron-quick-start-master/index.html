@@ -15,13 +15,14 @@
     and Electron <span id="electron-version"></span>.
     
     <div class="speech">
-      <h2>啊 我好想毕业 啊 他妈的</h2>
+      <h2>捷联解算及展示</h2>
     </div>
 
     <div class="readFile ">
       <div class="holder todoList">
         TodoList-1: 选取文件
         <!-- <input type="file" name="read-din"> -->
+        <button class="json">生成json</button>
       </div>
       
       <div class="display-1">
@@ -30,12 +31,15 @@
           <option value="north">北向角度</option>
           <option value="heading">天向角度</option>
         </select>
+        <p class="display1"></p>
       </div>
 
-      <div class="echarts"></div>
+      <div id="echarts"></div>
     </div>
 
     <!-- You can also require other files to run in this process -->
+
+    <script src="../src/echarts.min.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>
