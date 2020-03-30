@@ -14,7 +14,7 @@
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
     
-    <div class="speech">
+    <div class="speech header">
       <h2>捷联解算及展示</h2>
     </div>
 
@@ -22,14 +22,24 @@
       <div class="holder todoList">
         TodoList-1: 选取文件
         <!-- <input type="file" name="read-din"> -->
+        <span class="holder">⚪</span>
         <button class="json">生成json</button>
       </div>
       
       <div class="display-1">
+        <label for="example-select">bar</label>
         <select name="example-select" id="example-select" >
           <option value="east">东向角度</option>
           <option value="north">北向角度</option>
           <option value="heading">天向角度</option>
+          <option value="pulse">脉冲数</option>
+        </select>
+        <label for="example-select">bar2</label>
+        <select name="example-select" id="example-select2" >
+          <option value="east">东向角度</option>
+          <option value="north">北向角度</option>
+          <option value="heading">天向角度</option>
+          <option value="pulse">脉冲数</option>
         </select>
         <p class="display1"></p>
       </div>

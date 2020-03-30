@@ -25,9 +25,11 @@ const fs = require('fs')
 let options = {
   east: [],
   north: [],
-  heading: []
+  heading: [],
+  timetable: [],
+  pulse: []
 }
-let HashTable_index = [42, 50, 58]
+let HashTable_index = [42, 50, 58, 14, 6]
 
 //测试
 const pathName = '../src/INS.din'
@@ -37,7 +39,15 @@ fs.readFile(pathName, function(er, buf) {
     alert("???")
   }
   rowStr = buf.toString('hex')
-  rowStr = rowStr.replace(/dbc0/g, 'dc').replace(/dbdb/g, 'dd')
+  console.log(rowStr.slice(0,130))
+  console.log(rowStr.slice(130,260))
+  console.log(rowStr.slice(260,390))
+  rowStr = rowStr.replace(/dbdc/g, 'c0').replace(/dbdd/g, 'db')
+  console.log('>>>>>>>>>>>>>>>')
+  console.log('>>>>>>>>>>>>>>>')
+  console.log(rowStr.slice(0,130))
+  console.log(rowStr.slice(130,260))
+  console.log(rowStr.slice(260,390))
   // console.log(rowStr.length % 130)
   console.log((rowStr.length - rowStr.length % 130)/130)
 
@@ -52,18 +62,31 @@ fs.readFile(pathName, function(er, buf) {
       // console.log(arr_tmp1)
       // console.log(foo(arr_tmp1[0]))
       var arr_tmp = []
-      arr_tmp1.forEach(val => arr_tmp.push(foo(val)) )
+
       // var arr_tmp = []
       // console.log(arr_tmp)
       if(index === HashTable_index[0]){
+        arr_tmp1.forEach(val => arr_tmp.push(foo(val)) )
         options.east = arr_tmp
       }
       else if(index === HashTable_index[1]){
         options.north = arr_tmp
+        arr_tmp1.forEach(val => arr_tmp.push(foo(val)) )
       }
       else if(index === HashTable_index[2]){
+        arr_tmp1.forEach(val => arr_tmp.push(foo(val)) )
         options.heading = arr_tmp
       }
+      else if(index === HashTable_index[3]) {
+        arr_tmp1.forEach(val => arr_tmp.push(foo(val, 1)))
+        options.timetable = arr_tmp
+      }
+      else if(index === HashTable_index[4]) {
+        arr_tmp1.forEach(val => arr_tmp.push(foo(val, 1)))
+        options.pulse = arr_tmp
+      }
+
+
       // options.east = arr_tmp
       arr_tmp = []
     }
@@ -78,7 +101,7 @@ fs.readFile(pathName, function(er, buf) {
 
 const target = (index, step=100 ) => {
   let s = []
-  //step=10: 
+  //step=100 的理由
   //基于课题考量 14万个包24分钟左右。即一秒钟采样7，80次 参考采样周期0.02s 频率50hz 还蛮合理。 那我一秒一个点好了 把step记为75 1905个点。 
   // 24分钟对应1440个点才好. 80 -> 1786; 95 -> 1504 100 -> 1429
   //rowStr.length / 130 修改为 rowStr.length
@@ -137,6 +160,7 @@ $json.onclick = function() {
 
 // 4.
  let $exa_sel  = document.querySelector('#example-select')
+ let $exa_sel2  = document.querySelector('#example-select2')
  $display1 = document.querySelector('.display1')
  $exa_sel.onchange = function() {
    console.log(this.value)
@@ -145,7 +169,13 @@ $json.onclick = function() {
     option.series[0].data = options[this.value];   
     self.setOption(option);
  }
-
+ $exa_sel2.onchange = function() {
+  console.log(this.value)
+ //  $display1.innerText = options[this.value]
+  var option = self.getOption();
+   option.series[1].data = options[this.value];   
+   self.setOption(option);
+}
  // 5.
 //推断： 以下操作是同步操作，异步的文档操作使得data1,data2无法赋值！因为options还是空的呀！
 //修改为readFileSync() 不可，同步方法没有回调。
@@ -167,7 +197,10 @@ option = null;
 var xAxisData = [];
 var data1 = [];
 var data2 = [];
-for (var i = 0; i < 1504; i++) {
+// 测试前几个数据是否与参考吻合。按道理说将step修改为1比较好比较。
+// for (var i = 0; i < 80; i++) {
+  //范围比1429这个数据稍大即可 做出如下修改：
+  for (var i = 0; i < options.east.length + 80; i++) {
     xAxisData.push('间隔' + i);
     // data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
     data1.push(options.east[i]);

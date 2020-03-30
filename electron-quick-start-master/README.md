@@ -2,11 +2,12 @@
 - 基于electron-quick-start项目进行开发，后文为原作者的readme。
 - 本作是捷联惯导系统数据处理软件demo,数据处理遵循一个指定的 SLIP 协议进行解释，每个包65字节。
 - 小记 真是个美好的夜晚。 2020年3月30日03点05分
+- 今天对准了脉冲数，至此数据与din文件范例完全吻合
 
 **Finished**
 - readFile: INS.din => bianyString
 - bianryString.str_ax => arr_ax
-- 
+- dataset is matched.
 
 **Todo List**
 - 选取文件
