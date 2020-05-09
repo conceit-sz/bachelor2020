@@ -70,6 +70,7 @@ const MainWork = {
   init() {
     console.log("Mainwork init..")
     this.$$sections = $$(".header .section")
+    this.$$modules = $$(".main .module")
 
     this.bind()
   },
@@ -77,8 +78,11 @@ const MainWork = {
   bind() {
     this.$$sections.forEach($section => {
       $section.onclick = () => {
-      this.$$sections.forEach($section => $section.classList.remove("active"))
-      $section.classList.add("active")
+        this.$$sections.forEach($section => $section.classList.remove("active"))
+        $section.classList.add("active")
+        let index = Array.from(this.$$sections).indexOf($section)
+        this.$$modules.forEach($module => $module.classList.remove("active"))
+        this.$$modules[index].classList.add("active")
       }
     })
   }
