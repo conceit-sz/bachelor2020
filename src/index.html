@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>bachelor2020</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class="information">
+        <h1>Hello World!</h1>
+        We are using Node.js <span id="node-version"></span>,
+        Chromium <span id="chrome-version"></span>,
+        and Electron <span id="electron-version"></span>.
+    </div>
+
+
+    <div class="speech header">
+      <h1>INS数据分析处理</h1>
+      <button class="start">选择文件</button>
+    </div>
+
+    <div class="readFile ">
+      <div class="holder todoList">
+        TodoList-1: 选取文件or拖放
+        <button id="select-directory">选择文件</button>
+        <button class="json button">生成TXT</button>
+      </div>
+      
+      <div class="display-1">
+        <label for="example-select">bar</label>
+        <select name="example-select" id="example-select" >
+          <option value="east" data-html="东向角度">东向角度</option>
+          <option value="north" data-html="北向角度">北向角度</option>
+          <option value="heading" data-html="天向角度">天向角度</option>
+          <option value="pulse" data-html="脉冲数">脉冲数</option>
+          <option hidden class="hid" value="v_east" data-html="东向速度">东向速度</option>
+          <option hidden class="hid" value="v_north" data-html="北向速度">北向速度</option>
+          <option hidden class="hid" value="v_heading" data-html="天向速度">天向速度</option>
+          <option hidden class="hid" value="dv_east" data-html="东向速度增量">东向速度增量</option>
+          <option hidden class="hid" value="dv_north" data-html="北向速度增量">北向速度增量</option>
+          <option hidden class="hid" value="dv_heading" data-html="天向速度增量">天向速度增量</option>
+          <option hidden class="hid" value="pitch" data-html="俯仰角">俯仰角</option>
+          <option hidden class="hid" value="roll" data-html="横滚角">横滚角</option>
+          <option hidden class="hid" value="yaw" data-html="航向角">航向角</option>
+          
+          
+        </select>
+        <label for="example-select2">bar2</label>
+        <select name="example-select" id="example-select2">
+          <option value="north">北向角度</option>
+          <option value="east">东向角度</option>
+          <option value="heading">天向角度</option>
+          <option value="pulse">脉冲数</option>
+          <option hidden class="hid" value="v_east">东向速度</option>
+          <option hidden class="hid" value="v_north">北向速度</option>
+          <option hidden class="hid" value="v_heading">天向速度</option>
+          <option hidden class="hid" value="dv_east">东向速度增量</option>
+          <option hidden class="hid" value="dv_north">北向速度增量</option>
+          <option hidden class="hid" value="dv_heading">天向速度增量</option>
+          <option hidden class="hid" value="pitch">俯仰角</option>
+          <option hidden class="hid" value="row">横滚角</option>
+          <option hidden class="hid" value="yaw">航向角</option>
+        </select>
+        <span class="toggle onuse disappear"></span>
+      </div>
+
+      <div class="display-2">
+        <div class="loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="echarts"></div>
+      </div>
+    </div>
+
+    <div class="description">
+      <div class="details"></div>
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+
+    <!-- <script src="./echarts.min.js"></script> -->
+  </body>
+</html>

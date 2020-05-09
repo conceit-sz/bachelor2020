@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.information, .readFile, .description {
+  display: none;
+}
+
+div.speech {
+  width: 100vw;
+  height: 100vh;
+  background-color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: center/cover no-repeat url("./media/bgd.jpg");
+}
+
+div.speech > h1 {
+  font-weight: 600;
+  font-size: 75px;
+  color: white;
+  font-family:  Courier, monospace, serif;
+
+  background-color: rgba(83, 83, 83, 0.205);
+}
+div.speech > h1::selection {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  padding: 5px 12px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+
+}
+button:hover {
+  border: 2px solid lightseagreen;
+  color: lightseagreen;
+}
+
+button.start {
+  position: absolute;
+  bottom: 25vh;
+  font-size: 20px
+}
