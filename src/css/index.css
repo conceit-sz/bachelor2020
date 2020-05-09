@@ -3,8 +3,11 @@
   margin: 0;
 }
 
-.information, .module {
+.module {
   display: none;
+}
+.module.appear {
+  display: block;
 }
 
 div.speech {
@@ -15,7 +18,7 @@ div.speech {
   align-items: center;
   justify-content: center;
   
-  background: center/cover no-repeat url("./media/bgd.jpg");
+  background: center/cover no-repeat url("../media/bgd.jpg");
 
   opacity: 1;
   transition: opacity .3s;
@@ -35,6 +38,7 @@ div.speech > h1 {
   font-family:  Courier, monospace, serif;
 
   background-color: rgba(83, 83, 83, 0.205);
+  cursor: default;
 }
 div.speech > h1::selection {
   text-decoration: none;
@@ -43,23 +47,24 @@ div.speech > h1::selection {
 button {
   outline: none;
   padding: 5px 12px;
-  background-color: transparent;
   border: 2px solid white;
   border-radius: 4px;
-  color: white;
   cursor: pointer;
 
   transition: background-color .3s;
 
 }
+button.start {
+  position: absolute;
+  bottom: 25vh;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+}
+
 button:hover {
   border: 2px solid lightseagreen;
   color: lightseagreen;
   background-color: white;
 }
 
-button.start {
-  position: absolute;
-  bottom: 25vh;
-  font-size: 20px
-}
