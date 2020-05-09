@@ -3,17 +3,16 @@
   margin: 0;
 }
 
-.module {
+.content {
   display: none;
-}
-.module.appear {
+} 
+.content.appear {
   display: block;
 }
 
 div.speech {
   width: 100vw;
   height: 100vh;
-  background-color: #666;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,4 +66,3 @@ button:hover {
   color: lightseagreen;
   background-color: white;
 }
-

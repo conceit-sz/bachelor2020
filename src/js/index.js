@@ -1,5 +1,6 @@
 const { dialog } = require("electron").remote
 const doSomething = require("./js/calc/start").doSomething
+const echarts = require('echarts')
 
 let $ = s => document.querySelector(s)
 let $$ = s => document.querySelectorAll(s)
@@ -9,7 +10,7 @@ const Index = {
   init() {
     this.$start = $("button.start")
     this.$speech = $("div.speech")
-    this.$$modules = $$("div.module")
+    this.$content = $("div.content")
     
     this.bind()
   },
@@ -34,7 +35,7 @@ const Index = {
         let pathName = result.filePaths[0]
         CoreCalc.init(pathName)
         this.$speech.classList.add("hidden")
-        this.$$modules.forEach($module => $module.classList.add("appear"))
+        this.$content.classList.add("appear")
       }
     }).catch(error => {
       console.log(error)
@@ -60,7 +61,26 @@ const CoreCalc = {
   },
 
   render() {
+    
+  }
 
+}
+
+const MainWork = {
+  init() {
+    console.log("Mainwork init..")
+    this.$$sections = $$(".header .section")
+
+    this.bind()
+  },
+
+  bind() {
+    this.$$sections.forEach($section => {
+      $section.onclick = () => {
+      this.$$sections.forEach($section => $section.classList.remove("active"))
+      $section.classList.add("active")
+      }
+    })
   }
 
 }
@@ -72,4 +92,4 @@ const App = {
   }
 }
 
-App.init(Index)
+App.init(Index, MainWork)
