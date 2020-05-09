@@ -20,7 +20,7 @@ div.speech {
   opacity: 1;
   transition: opacity .3s;
 }
-div.speech.click {
+div.speech.clicked {
   opacity: 0.6;
 }
 
@@ -46,10 +46,13 @@ button {
   color: white;
   cursor: pointer;
 
+  transition: background-color .3s;
+
 }
 button:hover {
   border: 2px solid lightseagreen;
   color: lightseagreen;
+  background-color: white;
 }
 
 button.start {

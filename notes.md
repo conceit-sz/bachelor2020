@@ -1,0 +1,1 @@
+1. 注意index.js引入路径基于html,start.js引入路径基于自身。
