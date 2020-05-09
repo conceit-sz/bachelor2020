@@ -31,6 +31,7 @@ const Index = {
       if(result.filePaths.length !== 0) {
         let pathName = result.filePaths[0]
         this.doSomething(pathName)
+        this.$speech.classList.add("hidden")
       }
     }).catch(error => {
       console.log(error)

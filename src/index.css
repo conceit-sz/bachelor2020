@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-.information, .readFile, .description {
+.information, .module {
   display: none;
 }
 
@@ -22,6 +22,9 @@ div.speech {
 }
 div.speech.clicked {
   opacity: 0.6;
+}
+div.hidden {
+  display: none
 }
 
 
