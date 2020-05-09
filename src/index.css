@@ -16,7 +16,14 @@ div.speech {
   justify-content: center;
   
   background: center/cover no-repeat url("./media/bgd.jpg");
+
+  opacity: 1;
+  transition: opacity .3s;
 }
+div.speech.click {
+  opacity: 0.6;
+}
+
 
 div.speech > h1 {
   font-weight: 600;
