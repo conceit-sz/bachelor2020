@@ -71,6 +71,12 @@ const MainWork = {
     console.log("Mainwork init..")
     this.$$sections = $$(".header .section")
     this.$$modules = $$(".main .module")
+    this.$line = $(".header .line")
+    console.log(this.$$sections[0].offsetLeft)
+    // this.$line.style.width =`${this.$$sections[0].offsetWidth}px`
+    // this.$line.style.transform = `translateX(${this.$$sections[0].offsetLeft}px)`
+    this.$line.style.width = "41px"
+    this.$line.style.transform = `translateX(185px)`
 
     this.bind()
   },
@@ -78,11 +84,14 @@ const MainWork = {
   bind() {
     this.$$sections.forEach($section => {
       $section.onclick = () => {
-        this.$$sections.forEach($section => $section.classList.remove("active"))
-        $section.classList.add("active")
-        let index = Array.from(this.$$sections).indexOf($section)
-        this.$$modules.forEach($module => $module.classList.remove("active"))
-        this.$$modules[index].classList.add("active")
+      this.$$sections.forEach($section => $section.classList.remove("active"))
+      $section.classList.add("active")
+      let index = Array.from(this.$$sections).indexOf($section)
+      this.$$modules.forEach($module => $module.classList.remove("active"))
+      this.$$modules[index].classList.add("active")
+
+      this.$line.style.width = `${$section.offsetWidth}px`
+      this.$line.style.transform = `translateX(${$section.offsetLeft}px)`
       }
     })
   }

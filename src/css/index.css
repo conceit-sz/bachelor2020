@@ -36,7 +36,7 @@ div.speech > h1 {
   color: white;
   font-family:  Courier, monospace, serif;
 
-  background-color: rgba(83, 83, 83, 0.205);
+  background-color: rgba(83, 83, 83, 0.541);
   cursor: default;
 }
 div.speech > h1::selection {

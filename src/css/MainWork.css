@@ -1,52 +1,75 @@
 /* 开发环境*/
-.content {
+/* .content.appear
+ {
   display: block;
-}
-/* 开发内容 */
+}  */
+/* 开发内容 最后需要添加appear */
 /* Module1 */
-.content {
+.content.appear
+ {
   width: 100vw;
   height: 100vh;
   background-color: #666;
   display: grid;
-  grid: 8vh 1fr 10vh / 1fr;
+  grid: 8vh 1fr 8vh / 1fr;
 }
-.content .header {
+.content.appear
+ .header {
   grid-area: 0/1/1/0;
   display: flex;
   align-items: flex-end;
   padding: 5px;
   border-bottom: 2px solid tomato; 
   font-weight: 600;
+  position: relative;
 }
-.content .header label {
+.content.appear .line {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background-color: lightblue;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  transition: all .8s;
+}
+.content.appear
+ .header label {
   padding-right: 10vw;
   margin-right: 5vw;
   cursor: pointer;
 }
-.content .header .section {
+.content.appear
+ .header .section {
   padding-top: 20px;
   margin-right: 4vw;
   cursor: pointer;
 }
-.content .header .section.active {
+.content.appear
+ .header .section.active {
   color:white;
 }
 
-.content .main {
+.content.appear
+ .main {
   grid-area: 1/1/2/0;
 }
-.content .main .module {
+.content.appear
+ .main .module {
   display: none;
 }
-.content .main .module.active {
+.content.appear
+ .main .module.active {
   display: block;
 }
-.content .footer{
+.content.appear
+ .footer{
   grid-area: 2/1/3/0;
   display:flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 2vw;
+  padding: 1vh;
 }
 
