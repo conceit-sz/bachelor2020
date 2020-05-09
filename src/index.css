@@ -23,6 +23,9 @@ div.speech {
 div.speech.clicked {
   opacity: 0.6;
 }
+div.hidden {
+  display: none
+}
 
 
 div.speech > h1 {
