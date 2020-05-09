@@ -49,19 +49,24 @@ button {
   border: 2px solid white;
   border-radius: 4px;
   cursor: pointer;
+  background-color: transparent;
 
   transition: background-color .3s;
 
 }
-button.start {
+div.union {
   position: absolute;
   bottom: 25vh;
   font-size: 20px;
-  background-color: transparent;
+}
+div.union button {
   color: white;
 }
+div.union button.start {
+  margin-right: 20px;
+}
 
-button:hover {
+div.union button:hover {
   border: 2px solid lightseagreen;
   color: lightseagreen;
   background-color: white;

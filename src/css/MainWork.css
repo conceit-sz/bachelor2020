@@ -9,9 +9,12 @@
  {
   width: 100vw;
   height: 100vh;
-  background-color: #666;
+  /* background-color: #666; */
   display: grid;
-  grid: 8vh 1fr 8vh / 1fr;
+  grid: 10vh 1fr 8vh / 1fr;
+}
+.content.forth {
+  background: center/cover no-repeat url("../media/Sketchpad.png");
 }
 .content.appear
  .header {
@@ -19,9 +22,11 @@
   display: flex;
   align-items: flex-end;
   padding: 5px;
+  padding-top: 0;
   border-bottom: 2px solid tomato; 
   font-weight: 600;
   position: relative;
+
 }
 .content.appear .line {
   content: "";
@@ -38,7 +43,6 @@
 .content.appear
  .header label {
   padding-right: 10vw;
-  margin-right: 5vw;
   cursor: pointer;
 }
 .content.appear
@@ -47,9 +51,13 @@
   margin-right: 4vw;
   cursor: pointer;
 }
-.content.appear
- .header .section.active {
-  color:white;
+.content.appear.header .section.active,
+.content.appear .section:hover {
+  color:lightseagreen;
+}
+.content.forth .section.active,
+.content.forth .section:hover {
+  color: white;
 }
 
 .content.appear
