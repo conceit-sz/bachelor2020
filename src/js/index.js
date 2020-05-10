@@ -69,6 +69,7 @@ const CoreCalc = {
 
   start(m) {
     this.options = this.doSomething(m)
+    setTimeout(() => console.log(this.options), 1000)
   },
 
   render() {
