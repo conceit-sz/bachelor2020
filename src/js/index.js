@@ -197,6 +197,13 @@ const CoreCalc = {
   }
 }
 
+const Timetable = {
+  init() {
+    console.log("Timetable init..")
+    
+  }
+}
+Timetable.init()
 const MainWork = {
   init(flag="") {
     console.log("Mainwork init..")
