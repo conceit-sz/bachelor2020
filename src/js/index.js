@@ -28,7 +28,7 @@ const Index = {
       this.$speech.classList.add("hidden")
       this.$content.classList.add("appear")
 
-      MainWork.init("info")
+      setTimeout(() => MainWork.init("info"),30)
     }
   },
 
@@ -49,7 +49,7 @@ const Index = {
         this.$content.classList.add("appear")
 
         $$(".header .section")[0].click()
-        MainWork.init()
+        setTimeout(() => MainWork.init(),30)
       }
     }).catch(error => {
       console.log(error)

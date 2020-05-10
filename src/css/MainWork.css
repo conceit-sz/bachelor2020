@@ -12,9 +12,10 @@
   /* background-color: #666; */
   display: grid;
   grid: 10vh 1fr 8vh / 1fr;
+  transition: all .3s;
 }
 .content.forth {
-  background: center/cover no-repeat url("../media/Sketchpad.png");
+  background: center/cover no-repeat url("../media/Sketch003.jpg");
 }
 .content.appear
  .header {
@@ -42,7 +43,9 @@
 }
 .content.appear
  .header label {
-  padding-right: 10vw;
+  color: blueviolet;
+  font-weight: 600;
+  padding-right: 5vw;
   cursor: pointer;
 }
 .content.appear
@@ -50,8 +53,12 @@
   padding-top: 20px;
   margin-right: 4vw;
   cursor: pointer;
+
+  /* iconfont */
+  display: flex;
+  align-items: center;
 }
-.content.appear.header .section.active,
+.content.appear .section.active,
 .content.appear .section:hover {
   color:lightseagreen;
 }
@@ -81,3 +88,6 @@
   padding: 1vh;
 }
 
+span.iconfont {
+  margin-right: 6px;
+}
