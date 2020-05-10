@@ -41,6 +41,7 @@ const Index = {
 
 
         let pathName = result.filePaths[0]
+        console.log(`your path is:\t${pathName}`)
         CoreCalc.init(pathName)
         this.$speech.classList.add("hidden")
         this.$content.classList.add("appear")
@@ -62,18 +63,127 @@ const CoreCalc = {
     console.log("CoreCalc init..")
     this.doSomething = doSomething
     this.options = {}
+
     this.options2 = []
 
     this.start(pathName)
   },
 
   start(m) {
-    this.options = this.doSomething(m)
-    setTimeout(() => console.log(this.options), 1000)
+    this.doSomething.init(m)
+    this.options = this.doSomething.showOptions()
+    setTimeout(()=>console.log(this.options),200)
+    setTimeout(() => this.render(),500)
   },
 
   render() {
-    
+    console.log("CoreCalc rendering..")
+
+    let self = {} 
+
+      var dom = document.getElementById("echarts");
+      var myChart = echarts.init(dom);
+      self = myChart;
+      var app = {};
+      option = null;
+      var xAxisData = [];
+      var data1 = [];
+      var data2 = [];
+      // 测试前几个数据是否与参考吻合。按道理说将step修改为1比较好比较。
+      // for (var i = 0; i < 80; i++) {
+        //范围比1429这个数据稍大即可 为了最后一个时间不显示undefined 还是改回来
+        for (var i = 0; i < this.options.east.length; i++) {
+          // xAxisData.push('间隔' + i);
+          xAxisData.push(this.options.timetable[i]);
+          // data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
+          data1.push(this.options.east[i]);
+          // data2.push(this.options.north[i]);
+          // data2.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 0.5e-7);
+      }
+      console.log(`渲染数组长度：\t${data1.length}`)
+  
+      option = {
+          title: {
+              text: '柱状图动画延迟'
+          },
+          legend: {
+              data: ['east', 'bar2']
+          },
+          toolbox: {
+              // y: 'bottom',
+              feature: {
+                  magicType: {
+                      type: ['stack', 'tiled']
+                  },
+                  dataView: {},
+                  saveAsImage: {
+                      pixelRatio: 2
+                  }
+              }
+          },
+          tooltip: {},
+          dataZoom: [
+            {
+                type: 'slider',
+                show: true,
+                xAxisIndex: [0],
+                start: 0,
+                end: 100
+            },
+            // {
+            //     type: 'slider',
+            //     show: true,
+            //     yAxisIndex: [0],
+            //     left: '93%',
+            //     start: 0,
+            //     end: 100
+            // },
+            {
+                type: 'inside',
+                xAxisIndex: [0],
+                start: 0,
+                end: 100
+            }
+            // },
+            // {
+            //     type: 'inside',
+            //     yAxisIndex: [0],
+            //     start: 0,
+            //     end: 100
+            // }
+        ],
+          xAxis: {
+              data: xAxisData,
+              splitLine: {
+                  show: false
+              }
+          },
+          yAxis: {
+          },
+          series: [{
+              name: 'east',
+              type: 'bar',
+              data: data1,
+              animationDelay: function (idx) {
+                  return idx * 1;
+              }
+          }, {
+              name: 'bar2',
+              type: 'bar',
+              data: data2,
+              animationDelay: function (idx) {
+                  return idx * 1 + 100;
+              }
+          }],
+          animationEasing: 'elasticOut',
+          animationDelayUpdate: function (idx) {
+              return idx * 1;
+          }
+      };;
+      if (option && typeof option === "object") {
+          myChart.setOption(option, true);
+      }
+
   }
 
 }
