@@ -30,6 +30,28 @@ const Index = {
 
       setTimeout(() => MainWork.init("info"),30)
     }
+    //拖拽
+    document.addEventListener('drop', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    
+      for (const f of e.dataTransfer.files) {
+        console.log('File(s) you dragged here: ', f.path)
+        pathName = f.path
+    
+        //把后文整理为函数全部放进这里。
+        CoreCalc.init(pathName)
+        this.$speech.classList.add("hidden")
+        this.$content.classList.add("appear")
+
+        $$(".header .section")[0].click()
+        setTimeout(() => MainWork.init(),30)
+      }
+    });
+    document.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
   },
 
   readFile() {

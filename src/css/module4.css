@@ -1,0 +1,11 @@
+.module.information {
+  max-width: 58vw;
+  max-height: 70vh;
+  margin: 5vh auto;
+}
+.module.information .main {
+  background-color: rgba(255, 255, 255, 0.397);
+  backdrop-filter: blur(4px);
+  padding: 10px;
+  color: brown;
+}
