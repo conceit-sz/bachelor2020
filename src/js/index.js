@@ -204,28 +204,34 @@ const CoreCalc = {
 const Timetable = {
   init() {
     console.log("Timetable init..")
-    // this.options = CoreCalc.options
-    // this.options2 = []
+    this.options = CoreCalc.options
+    this.options2 = []
     this.$slider = $("input[type='range']")
     this.$output = $(".timetable .sliderName")
 
-    // this.recalc(this.options)
-    this.render()
+    this.recalc(this.options)
+    setTimeout(()=>this.bind(),1000)
+
   },
 
   recalc(chara) {
     this.options2 = refixed(chara)
-    console.log(this.options2)
+    console.log("options2 resolve..")
+    $$(".section")[2].click()
   },
 
-  render() {
+  bind() {
     let self = this
+    console.log(this.options.timetable[1426])
     this.$slider.oninput = function() {
-      self.$output.innerHTML = this.value;
+      let str = `
+时刻:${self.options.timetable[parseInt(this.value)]}
+      `
+      self.$output.innerHTML = str;
+      // console.log(parseInt(this.value))
     }
   }
 }
-Timetable.init()
 
 const MainWork = {
   init(flag="") {
