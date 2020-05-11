@@ -218,7 +218,7 @@ const Timetable = {
   recalc(chara) {
     this.options2 = refixed(chara)
     console.log("options2 resolve..")
-    $$(".section")[2].click()
+    // $$(".section")[2].click()
   },
 
   bind() {

@@ -5,6 +5,7 @@ input[type='range'] {
   border-radius: 10px; 
   background-color: rgba(153, 153, 153, 0.603);
   outline: none;
+  cursor: pointer;
 }
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;

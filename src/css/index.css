@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  cursor: default;
+}
+*::selection {
+  text-decoration: none;
 }
 
 .content {
