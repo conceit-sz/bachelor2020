@@ -208,6 +208,7 @@ const Timetable = {
     this.options2 = []
     this.$slider = $("input[type='range']")
     this.$output = $(".timetable .sliderName")
+    this.$output2 = $(".timetable .train")
 
     this.recalc(this.options)
     setTimeout(()=>this.bind(),1000)
@@ -222,19 +223,23 @@ const Timetable = {
 
   bind() {
     let self = this
-    // console.log(this.options.timetable[1426])
-    console.log(this.options2[1426])
-    let html = ''
-    for(let i=0; i<this.options2[1426].length; i++) {
-      html += `<strong>${translate(i)}</strong>:\t<p>${this.options2[1426][i]}</p>\n`
-    }
-    console.log(html)
     this.$slider.oninput = function() {
-      let str = `
-时刻:${self.options.timetable[parseInt(this.value)]}
-      `
-      self.$output.innerHTML = str;
       // console.log(parseInt(this.value))
+      let finalIndex = parseInt(this.value)
+      let str = `
+时刻:${self.options.timetable[finalIndex]}
+      `
+      self.$output.innerHTML = str
+
+      // console.log(self.options2[finalIndex])
+      let html = ''
+      for(let i=0; i<self.options2[finalIndex].length; i++) {
+        if(i === 0 ||i === 3 ||i === 5 || i === 8 ||i === 11) {html += '<div class="block">'}
+        html += `<strong>${translate(i)}</strong>:\t<p>${self.options2[finalIndex][i]}</p><br>`
+        if(i === 2 || i === 4 || i === 7 || i === 10 || i === 13) { html += '</div>'}
+      }
+      self.$output2.innerHTML = html
+      
     }
   }
 }
