@@ -2,7 +2,7 @@ const { dialog } = require("electron").remote
 const doSomething = require("./js/calc/start").doSomething
 const translate = require("./js/render/translate").translate
 const echarts = require('echarts')
-
+const refixed = require("./js/render/refixed").refixed
 
 let $ = s => document.querySelector(s)
 let $$ = s => document.querySelectorAll(s)
@@ -74,7 +74,10 @@ const CoreCalc = {
     this.doSomething.init(m)
     this.options = this.doSomething.showOptions()
     setTimeout(()=>console.log(this.options),200)
-    setTimeout(() => this.render(),500)
+    setTimeout(() => {
+      this.render()
+      Timetable.init()
+    },500)
   },
 
   render() {
@@ -200,10 +203,18 @@ const CoreCalc = {
 const Timetable = {
   init() {
     console.log("Timetable init..")
-    
+    this.options = CoreCalc.options
+    this.options2 = []
+
+    this.recalc(this.options)
+  },
+
+  recalc(chara) {
+    this.options2 = refixed(chara)
+    console.log(this.options2)
   }
 }
-Timetable.init()
+
 const MainWork = {
   init(flag="") {
     console.log("Mainwork init..")
