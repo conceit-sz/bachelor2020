@@ -222,7 +222,13 @@ const Timetable = {
 
   bind() {
     let self = this
-    console.log(this.options.timetable[1426])
+    // console.log(this.options.timetable[1426])
+    console.log(this.options2[1426])
+    let html = ''
+    for(let i=0; i<this.options2[1426].length; i++) {
+      html += `<strong>${translate(i)}</strong>:\t<p>${this.options2[1426][i]}</p>\n`
+    }
+    console.log(html)
     this.$slider.oninput = function() {
       let str = `
 时刻:${self.options.timetable[parseInt(this.value)]}
