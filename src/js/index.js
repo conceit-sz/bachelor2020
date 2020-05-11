@@ -162,6 +162,7 @@ const CoreCalc = {
         },
         series: [{
             name: '东向角度',
+            // scatter
             type: 'bar',
             data: data1,
             animationDelay: function (idx) {
@@ -203,17 +204,28 @@ const CoreCalc = {
 const Timetable = {
   init() {
     console.log("Timetable init..")
-    this.options = CoreCalc.options
-    this.options2 = []
+    // this.options = CoreCalc.options
+    // this.options2 = []
+    this.$slider = $("input[type='range']")
+    this.$output = $(".timetable .sliderName")
 
-    this.recalc(this.options)
+    // this.recalc(this.options)
+    this.render()
   },
 
   recalc(chara) {
     this.options2 = refixed(chara)
     console.log(this.options2)
+  },
+
+  render() {
+    let self = this
+    this.$slider.oninput = function() {
+      self.$output.innerHTML = this.value;
+    }
   }
 }
+Timetable.init()
 
 const MainWork = {
   init(flag="") {
