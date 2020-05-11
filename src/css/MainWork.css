@@ -66,6 +66,10 @@
 .content.forth .section:hover {
   color: white;
 }
+#explore.active,
+#explore:hover {
+  color: crimson;
+}
 
 .content.appear
  .main {
@@ -90,4 +94,5 @@
 
 span.iconfont {
   margin-right: 6px;
+  cursor: pointer;
 }
