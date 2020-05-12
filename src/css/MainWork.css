@@ -15,14 +15,9 @@
   transition: all .3s;
 }
 .content {
-  background: center/cover no-repeat url("../media/1.jpg");
+  background: center/cover no-repeat url("../media/test/K7oNwl.png");
 }
-.content.forth {
-  background: center/cover no-repeat url("../media/Sketch003.jpg");
-}
-.content.fifth {
-  background: center/cover no-repeat url("../media/bgd_blurred.jpg");
-}
+
 
 .content.appear
  .header {
@@ -72,22 +67,6 @@
   color:lightseagreen;
 }
 
-.content.forth .section.active,
-.content.forth .section:hover {
-  color: white;
-}
-.content.forth #explore.active,
-.content.forth #explore:hover {
-  color: crimson;
-}
-
-.content.fifth {
-  color: white;
-}
-.content.fifth .section.active,
-.content.fifth .section:hover {
-  color: lightgreen;
-}
 
 .content.appear
  .main {

@@ -16,3 +16,20 @@ input[type='range']::-webkit-slider-thumb {
   cursor: pointer;
   outline: none;
 }
+
+/*Menu*/
+
+.content.forth .section.active,
+.content.forth .section:hover {
+  color: white;
+}
+.content.forth #explore.active,
+.content.forth #explore:hover {
+  color: crimson;
+}
+
+/* background */
+
+.content.forth {
+  background: center/cover no-repeat url("../media/Sketch003.jpg");
+}

@@ -20,3 +20,19 @@
   color: deeppink;
   /* backdrop-filter: blur(20px); */
 }
+
+/* Menu */
+
+
+.content.fifth {
+  color: white;
+}
+.content.fifth .section.active,
+.content.fifth .section:hover {
+  color: lightgreen;
+}
+
+/* background */
+.content.fifth {
+  background: center/cover no-repeat url("../media/bgd_blurred.jpg");
+}
