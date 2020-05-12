@@ -14,9 +14,16 @@
   grid: 10vh 1fr 8vh / 1fr;
   transition: all .3s;
 }
+.content {
+  background: center/cover no-repeat url("../media/1.jpg");
+}
 .content.forth {
   background: center/cover no-repeat url("../media/Sketch003.jpg");
 }
+.content.fifth {
+  background: center/cover no-repeat url("../media/bgd_blurred.jpg");
+}
+
 .content.appear
  .header {
   grid-area: 0/1/1/0;
@@ -51,24 +58,35 @@
 .content.appear
  .header .section {
   padding-top: 20px;
-  margin-right: 4vw;
+  margin-right: 2vw;
   cursor: pointer;
 
   /* iconfont */
   display: flex;
   align-items: center;
 }
+
+  /*MENU*/
 .content.appear .section.active,
 .content.appear .section:hover {
   color:lightseagreen;
 }
+
 .content.forth .section.active,
 .content.forth .section:hover {
   color: white;
 }
-#explore.active,
-#explore:hover {
+.content.forth #explore.active,
+.content.forth #explore:hover {
   color: crimson;
+}
+
+.content.fifth {
+  color: white;
+}
+.content.fifth .section.active,
+.content.fifth .section:hover {
+  color: lightgreen;
 }
 
 .content.appear
@@ -93,6 +111,6 @@
 }
 
 span.iconfont {
-  margin-right: 6px;
+  margin-right: 4px;
   cursor: pointer;
 }

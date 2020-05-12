@@ -297,6 +297,12 @@ const MainWork = {
         }else {
           this.$content.classList.remove("forth")
         }
+
+        if(index === 4) {
+          this.$content.classList.add("fifth")
+        }else {
+          this.$content.classList.remove("fifth")
+        }
       }
     })
     if(this.flag === "info") {
