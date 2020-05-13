@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/module3.css">
     <link rel="stylesheet" href="./css/module4.css">
+    <link rel="stylesheet" href="./css/module5.css">
   </head>
   <body>
 
@@ -37,7 +38,7 @@
       <div class="main">
         <div class="module core-calc active">
 
-          <div class="display-1">
+          <div class="aside">
             <label for="example-select">解算单元</label>
             <select name="example-select" id="example-select" >
               <option value="east" data-html="东向角度">东向角度</option>
@@ -54,18 +55,13 @@
               <option value="roll" data-html="横滚角">横滚角</option>
               <option value="yaw" data-html="航向角">航向角</option>
             </select>
+            <select name="type" id="example-select2">
+              <option value="bar">柱状图</option>
+              <option value="scatter">散点图</option>
+            </select>
           </div>
-    
-          <div class="display-2">
-            <!-- <div class="loading">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div> -->
-            <div id="echarts"></div>
-          </div>
+            <div id="echarts" class="main"></div>
+
         </div>
     
         <div class="module unknown">

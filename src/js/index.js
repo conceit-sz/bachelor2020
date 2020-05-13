@@ -88,6 +88,7 @@ const CoreCalc = {
     this.doSomething = doSomething
     this.options = {}
     this.$exa_sel  = $('#example-select')
+    this.$exa_sel2 = $('#example-select2')
 
     this.start(pathName)
   },
@@ -111,11 +112,11 @@ const CoreCalc = {
     var dom = document.getElementById("echarts");
     var myChart = echarts.init(dom);
     self = myChart;
-    var app = {};
+    // var app = {};
     option = null;
     var xAxisData = [];
     var data1 = [];
-    var data2 = [];
+    // var data2 = [];
     for (var i = 0; i < this.options.east.length; i++) {
       xAxisData.push(this.options.timetable[i]);
       data1.push(this.options.east[i]);
@@ -134,9 +135,9 @@ const CoreCalc = {
         toolbox: {
             // y: 'bottom',
             feature: {
-                magicType: {
-                    type: ['stack', 'tiled']
-                },
+                // magicType: {
+                //     type: ['stack', 'tiled']
+                // },
                 dataView: {},
                 saveAsImage: {
                     pixelRatio: 2
@@ -149,8 +150,8 @@ const CoreCalc = {
               type: 'slider',
               show: true,
               xAxisIndex: [0],
-              start: 0,
-              end: 100
+              start: 58,
+              end: 75
           },
           // {
           //     type: 'slider',
@@ -163,8 +164,8 @@ const CoreCalc = {
           {
               type: 'inside',
               xAxisIndex: [0],
-              start: 0,
-              end: 100
+              start: 58,
+              end: 75
           }
           // },
           // {
@@ -190,14 +191,16 @@ const CoreCalc = {
             animationDelay: function (idx) {
                 return idx * 1;
             }
-        }, {
-            name: 'bar2',
-            type: 'bar',
-            data: data2,
-            animationDelay: function (idx) {
-                return idx * 1 + 100;
-            }
-        }],
+        }, 
+        // {
+        //     name: 'bar2',
+        //     type: 'bar',
+        //     data: data2,
+        //     animationDelay: function (idx) {
+        //         return idx * 1 + 100;
+        //     }
+        // }
+      ],
         animationEasing: 'elasticOut',
         animationDelayUpdate: function (idx) {
             return idx * 1;
@@ -219,6 +222,11 @@ const CoreCalc = {
         // 对option.series[0].name = translate(this.value);
         // 对option.legend[0].data[0] = translate(this.value);
         self.setOption(option);
+    }
+    this.$exa_sel2.onchange = function() {
+      var option = self.getOption();
+      option.series[0].type = this.value;
+      self.setOption(option);
     }
   }
 }
@@ -256,9 +264,10 @@ const Timetable = {
       // console.log(self.options2[finalIndex])
       let html = ''
       for(let i=0; i<self.options2[finalIndex].length; i++) {
-        if(i === 0 ||i === 3 ||i === 5 || i === 8 ||i === 11) {html += '<div class="block">'}
-        html += `<strong>${translate(i)}</strong>:\t<p>${self.options2[finalIndex][i]}</p><br>`
-        if(i === 2 || i === 4 || i === 7 || i === 10 || i === 13) { html += '</div>'}
+        // if(i === 0 ||i === 3 ||i === 5 || i === 8 ||i === 11) {html += '<div class="block">'}
+        // html += `<strong>${translate(i)}</strong>:\t<p>${self.options2[finalIndex][i]}</p>`
+        // if(i === 2 || i === 4 || i === 7 || i === 10 || i === 13) { html += '</div>'}
+        html += `<div class=block><strong>${translate(i)}</strong>:\t<p>${self.options2[finalIndex][i]}</p></div>`
       }
       self.$output2.innerHTML = html
       
