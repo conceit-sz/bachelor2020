@@ -86,6 +86,9 @@ const doSomething = {
       }
       return result
     }
+
+
+    //上面都是定义，下面开始执行。
     this.calc(x)
   },
 

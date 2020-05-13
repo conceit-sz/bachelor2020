@@ -40,13 +40,16 @@ div.train {
   align-content: center;
   justify-content: flex-start;
   flex-wrap: wrap;
-  position: relative;
-  margin: 30px auto;
+  margin: 10px auto;
   max-width: 80vw;
+  
 }
 div.block {
   margin-right: 2vw;
+  margin-bottom: 1vh;
+  /* overflow: hidden; */
   width: 17vw;
+  height: 70px;
 }
 .sliderName,
 div.block:nth-child(4) {
