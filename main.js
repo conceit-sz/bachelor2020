@@ -8,7 +8,7 @@ function createWindow () {
     width: 800,
     height: 600,      
     //默认不显示menu
-    // autoHideMenuBar: true,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
 
