@@ -7,9 +7,12 @@ const refixed = (options) => {
     let tmpx = []
     Object.entries(options).forEach(tmp => {
       tmpx.push(tmp[1][m])
+      // console.log(tmp[1][m])
     })
     tmpy.push(tmpx)
+    // console.log(tmpx)
   }
+  // console.log(tmpy)
   return tmpy
 }
 module.exports.refixed = refixed
