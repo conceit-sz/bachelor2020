@@ -317,6 +317,7 @@ const MainWork = {
     if(this.flag === "info") {
       this.$$sections[3].click()
       this.flag=""
+      console.log("Info init..")
     }
   }
 

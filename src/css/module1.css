@@ -2,8 +2,12 @@
   max-width: 700px;
   height: 65vh;
   margin: 0 auto;
+  margin-top: 8vh;
   backdrop-filter: blur(12px);
 }
 .content.bgd {
   background: center/cover no-repeat url("../media/test/K7oNwl.png");
+}
+.aside {
+  margin-top: 4vh;
 }
